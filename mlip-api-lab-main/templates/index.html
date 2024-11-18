@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Text Analysis</title>
+</head>
+<body>
+    <h1>API Documentation</h1>
+    <p>This API allows you to analyze images by sending a GET request to the endpoint.</p>
+    <h2>API Endpoint</h2>
+    <p>The API is accessible at: <strong>http://localhost:3000/api/v1/analysis/</strong></p>
+    <h2>Request</h2>
+    <p>To analyze an image, send a POST request with the image URI:</p>
+    <form action="/submit" method="POST">
+        <label for="image_uri">Image URI:</label>
+        <input type="text" id="image_uri" name="image_uri" required placeholder="Enter the image URL">
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+    <h3>Extracted Text from Image:</h3>
+    <p>{{ result.text }}</p>
+    {% elif error %}
+    <h3 style="color:red;">Error:</h3>
+    <p>{{ error }}</p>
+    {% endif %}
+
+</body>
+</html>
